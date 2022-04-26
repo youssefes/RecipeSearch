@@ -23,7 +23,6 @@ class RecipeSearchVC: BaseWireFrame<RecipeSearchViewModel> {
     @IBOutlet weak var recipeSearchTable: UITableView!
     
     func setUpView(){
-        title = "Recipe search"
         searchTf.delegate = self
         //MARK: - setUp health collection view
         //        healthLableCollectionView.allowsMultipleSelection = true
@@ -33,6 +32,11 @@ class RecipeSearchVC: BaseWireFrame<RecipeSearchViewModel> {
         recipeSearchTable.rx.setDelegate(self).disposed(by: disposePag)
         recipeSearchTable.register(UINib(nibName: recipeResulteTableCellIdentifier, bundle: nil), forCellReuseIdentifier: recipeResulteTableCellIdentifier)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Recipe search"
     }
     
     //MARK: - bind view model
@@ -79,8 +83,9 @@ class RecipeSearchVC: BaseWireFrame<RecipeSearchViewModel> {
         Observable.zip(recipeSearchTable.rx.itemSelected,recipeSearchTable.rx.modelSelected(Hits.self))
             .bind{ indexPath, model in
                 guard let recipe = model.recipe else {return}
-                print(recipe.label)
-                //                let SelectedExploreVc = self.coordinator.mainNavigator.viewController(for: .SelectedExplorVC(brands: brands, catId: model.catID ?? "0"))
+               let detailesVC =  self.coordinator.mainNavigator.viewController(for: .RecipeDetailesVC(recipt: recipe))
+                self.title = ""
+                self.navigationController?.pushViewController(detailesVC, animated: true)
             }.disposed(by: disposePag)
         
         //MARK: - selected healthy labels

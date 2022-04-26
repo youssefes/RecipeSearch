@@ -15,6 +15,7 @@ class MainNavigator : Navigator {
 
     enum Destination {
         case RecipeSearchVC
+        case RecipeDetailesVC(recipt : Recipe)
     }
     
     func viewController(for destination: Destination) -> UIViewController {
@@ -22,8 +23,12 @@ class MainNavigator : Navigator {
             
         case .RecipeSearchVC:
             let recipeSearchViewModel = RecipeSearchViewModel()
-            let RecipeSearchView = RecipeSearchVC(ViewModel: recipeSearchViewModel, coordinator: coordinator)
-            return RecipeSearchView
+            let recipeSearchView = RecipeSearchVC(ViewModel: recipeSearchViewModel, coordinator: coordinator)
+            return recipeSearchView
+        case .RecipeDetailesVC(recipt: let recipt ):
+            let recipeDetailesModel = RecipeDetailesViewModel(recipt: recipt)
+            let recipeDetailesView = RecipeDetailesVC(ViewModel: recipeDetailesModel, coordinator: coordinator)
+            return recipeDetailesView
         }
     }
     

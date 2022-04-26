@@ -67,8 +67,12 @@
                     <rect key="frame" x="16" y="191" width="382" height="651"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="btG-je-tRJ">
-                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="btG-je-tRJ">
+                    <rect key="frame" x="182" y="423" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="oVN-MY-yir"/>
+                        <constraint firstAttribute="width" constant="50" id="y8e-Lw-77F"/>
+                    </constraints>
                     <color key="color" red="0.2156862745" green="0.71372549019999998" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thire is No Resulte " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z1-1z-3HH">
