@@ -50,4 +50,13 @@ class BaseWireFrame <T>: UIViewController {
         fatalError("please Override the bind Function")
       
     }
+    
+    func createAlert(alertTite: String, alertMessage: String) {
+        let alert = UIAlertController(title: alertTite, message: alertMessage, preferredStyle: .alert)
+        let okAlertButton = UIAlertAction(title: "ok", style: .default, handler: nil)
+        alert.view.tintColor = #colorLiteral(red: 0.1176470588, green: 0.6705882353, blue: 0.2823529412, alpha: 1)
+        alert.addAction(okAlertButton)
+        present(alert, animated: true, completion: nil)
+        
+    }
 }
